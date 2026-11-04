@@ -3,5 +3,5 @@
 		'wp-data',
 		'wp-i18n'
 	),
-	'version' => 'c8ce6611946da6917811'
+	'version' => '00361e012beaf8dc34fc'
 );

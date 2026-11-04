@@ -263,10 +263,22 @@ function* getTodos() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getTodos: () => (/* binding */ getTodos)
+/* harmony export */   getDoneTodos: () => (/* binding */ getDoneTodos),
+/* harmony export */   getTodos: () => (/* binding */ getTodos),
+/* harmony export */   getTodosNumber: () => (/* binding */ getTodosNumber),
+/* harmony export */   getUnDoneTodos: () => (/* binding */ getUnDoneTodos)
 /* harmony export */ });
 const getTodos = state => {
   return state.items;
+};
+const getTodosNumber = state => {
+  return state.items.length;
+};
+const getDoneTodos = state => {
+  return state.items.filter(todo => todo.completed).length;
+};
+const getUnDoneTodos = state => {
+  return state.items.filter(todo => !todo.completed).length;
 };
 
 /***/ },
