@@ -1,5 +1,6 @@
 export const FETCH_TODOS = 'FETCH_TODOS'; 
 export const CREATE_TODO = 'CREATE_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 export const fetchTodos = () => {
   return {
@@ -11,6 +12,13 @@ export const createTodo = (title) => {
   return {
     type: CREATE_TODO,
     title
+  };
+};
+
+export const toggleTodo = (todo) => {
+  return {
+    type: TOGGLE_TODO,
+    todo
   };
 };
 
@@ -41,6 +49,24 @@ export default {
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to create todo.');
+        }
+        return response.json();
+      });
+  },
+  TOGGLE_TODO({todo}) {
+    return window
+      .fetch(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          completed: !todo.completed
+        })
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to toggle todo.');
         }
         return response.json();
       });

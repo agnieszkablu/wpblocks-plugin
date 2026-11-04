@@ -11,7 +11,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addTodo: () => (/* binding */ addTodo),
-/* harmony export */   populateTodos: () => (/* binding */ populateTodos)
+/* harmony export */   populateTodos: () => (/* binding */ populateTodos),
+/* harmony export */   toggleTodo: () => (/* binding */ toggleTodo),
+/* harmony export */   updateTodo: () => (/* binding */ updateTodo)
 /* harmony export */ });
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./src/todos-store/types.js");
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controls */ "./src/todos-store/controls.js");
@@ -34,6 +36,26 @@ function* addTodo(title) {
   }
 }
 ;
+function* toggleTodo(todo, index) {
+  try {
+    yield updateTodo({
+      ...todo,
+      loading: true
+    }, index);
+    const updatedTodo = yield (0,_controls__WEBPACK_IMPORTED_MODULE_1__.toggleTodo)(todo);
+    return updateTodo(updatedTodo, index);
+  } catch (error) {
+    console.error('Failed to toggle todo:', error);
+    return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.dispatch)('core/notices').createErrorNotice(error.message, 'Failed to toggle todo.');
+  }
+}
+const updateTodo = (todo, index) => {
+  return {
+    type: _types__WEBPACK_IMPORTED_MODULE_0__.UPDATE_TODO,
+    index,
+    todo
+  };
+};
 const populateTodos = todos => {
   return {
     type: _types__WEBPACK_IMPORTED_MODULE_0__.POPULATE_TODOS,
@@ -53,12 +75,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CREATE_TODO: () => (/* binding */ CREATE_TODO),
 /* harmony export */   FETCH_TODOS: () => (/* binding */ FETCH_TODOS),
+/* harmony export */   TOGGLE_TODO: () => (/* binding */ TOGGLE_TODO),
 /* harmony export */   createTodo: () => (/* binding */ createTodo),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   fetchTodos: () => (/* binding */ fetchTodos)
+/* harmony export */   fetchTodos: () => (/* binding */ fetchTodos),
+/* harmony export */   toggleTodo: () => (/* binding */ toggleTodo)
 /* harmony export */ });
 const FETCH_TODOS = 'FETCH_TODOS';
 const CREATE_TODO = 'CREATE_TODO';
+const TOGGLE_TODO = 'TOGGLE_TODO';
 const fetchTodos = () => {
   return {
     type: FETCH_TODOS
@@ -68,6 +93,12 @@ const createTodo = title => {
   return {
     type: CREATE_TODO,
     title
+  };
+};
+const toggleTodo = todo => {
+  return {
+    type: TOGGLE_TODO,
+    todo
   };
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -95,6 +126,24 @@ const createTodo = title => {
     }).then(response => {
       if (!response.ok) {
         throw new Error('Failed to create todo.');
+      }
+      return response.json();
+    });
+  },
+  TOGGLE_TODO({
+    todo
+  }) {
+    return window.fetch(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        completed: !todo.completed
+      })
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to toggle todo.');
       }
       return response.json();
     });
@@ -161,6 +210,13 @@ const reducer = (state = DEFAULT_STATE, action) => {
         ...state,
         items: action.todos
       };
+    case _types__WEBPACK_IMPORTED_MODULE_0__.UPDATE_TODO:
+      const itemsCopy = [...state.items];
+      itemsCopy[action.index] = action.todo;
+      return {
+        ...state,
+        items: itemsCopy
+      };
     default:
       return state;
   }
@@ -226,12 +282,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ADD_TODO: () => (/* binding */ ADD_TODO),
 /* harmony export */   CREATE_TODO: () => (/* binding */ CREATE_TODO),
 /* harmony export */   FETCH_TODOS: () => (/* binding */ FETCH_TODOS),
-/* harmony export */   POPULATE_TODOS: () => (/* binding */ POPULATE_TODOS)
+/* harmony export */   POPULATE_TODOS: () => (/* binding */ POPULATE_TODOS),
+/* harmony export */   TOGGLE_TODO: () => (/* binding */ TOGGLE_TODO),
+/* harmony export */   UPDATE_TODO: () => (/* binding */ UPDATE_TODO)
 /* harmony export */ });
 const ADD_TODO = 'ADD_TODO';
 const FETCH_TODOS = 'FETCH_TODOS';
 const POPULATE_TODOS = 'POPULATE_TODOS';
 const CREATE_TODO = 'CREATE_TODO';
+const TOGGLE_TODO = 'TOGGLE_TODO';
+const UPDATE_TODO = 'UPDATE_TODO';
 
 /***/ },
 
