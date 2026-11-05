@@ -2,6 +2,78 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/plugins/sidebar.js"
+/*!********************************!*\
+  !*** ./src/plugins/sidebar.js ***!
+  \********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
+/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+(0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__.registerPlugin)('metafildes-block-sidebar', {
+  render: () => {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginDocumentSettingPanel, {
+        name: "metafildes-block-panel",
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Metafields Post Options Panel', 'blocks-plugin'),
+        className: "metafildes-block-panel",
+        icon: "admin-settings",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content of the panel', 'blocks-plugin')
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginPostStatusInfo, {
+        className: "metafildes-block-status-info",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content of the status info', 'blocks-plugin')
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginPrePublishPanel, {
+        name: "metafildes-block-pre-publish-panel",
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Metafields Pre Publish Panel', 'blocks-plugin'),
+        className: "metafildes-block-pre-publish-panel",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content of the pre publish panel', 'blocks-plugin')
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginPostPublishPanel, {
+        name: "metafildes-block-post-publish-panel",
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Metafields Post Publish Panel', 'blocks-plugin'),
+        className: "metafildes-block-post-publish-panel",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content of the post publish panel', 'blocks-plugin')
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginMoreMenuItem, {
+        icon: "admin-settings",
+        onClick: () => alert((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('More menu item clicked', 'blocks-plugin')),
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Metafields More Menu Item', 'blocks-plugin')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginBlockSettingsMenuItem, {
+        icon: "admin-settings",
+        onClick: () => alert((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Block settings menu item clicked', 'blocks-plugin')),
+        allowedBlocks: ['core/paragraph'],
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Metafields Block Settings Menu Item', 'blocks-plugin')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_editor__WEBPACK_IMPORTED_MODULE_0__.PluginSidebar, {
+        name: "metafildes-block-sidebar",
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Metafields Post Options Sidebar', 'blocks-plugin'),
+        icon: "admin-settings",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content of the sidebar', 'blocks-plugin')
+        })
+      })]
+    });
+  }
+});
+
+/***/ },
+
 /***/ "./src/todos-store/actions.js"
 /*!************************************!*\
   !*** ./src/todos-store/actions.js ***!
@@ -307,6 +379,16 @@ const UPDATE_TODO = 'UPDATE_TODO';
 
 /***/ },
 
+/***/ "react/jsx-runtime"
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+(module) {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ },
+
 /***/ "@wordpress/data"
 /*!******************************!*\
   !*** external ["wp","data"] ***!
@@ -317,6 +399,16 @@ module.exports = window["wp"]["data"];
 
 /***/ },
 
+/***/ "@wordpress/editor"
+/*!********************************!*\
+  !*** external ["wp","editor"] ***!
+  \********************************/
+(module) {
+
+module.exports = window["wp"]["editor"];
+
+/***/ },
+
 /***/ "@wordpress/i18n"
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -324,6 +416,16 @@ module.exports = window["wp"]["data"];
 (module) {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ },
+
+/***/ "@wordpress/plugins"
+/*!*********************************!*\
+  !*** external ["wp","plugins"] ***!
+  \*********************************/
+(module) {
+
+module.exports = window["wp"]["plugins"];
 
 /***/ }
 
@@ -401,6 +503,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _todos_store_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos-store/index.js */ "./src/todos-store/index.js");
+/* harmony import */ var _plugins_sidebar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/sidebar.js */ "./src/plugins/sidebar.js");
+
 
 
 })();

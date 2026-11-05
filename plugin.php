@@ -12,6 +12,7 @@
  * Text Domain:       blocks-plugin
  */
 include_once('metabox.php');
+include_once('templates.php');
 
 function blocks_plugin_enqueue_assets()
 {

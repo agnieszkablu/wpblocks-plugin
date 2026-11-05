@@ -37,6 +37,8 @@
     "stylelint": "^16.26.1"
   },
   "dependencies": {
-    "@wordpress/i18n": "^4.2.4"
+    "@wordpress/edit-post": "^8.57.0",
+    "@wordpress/i18n": "^4.2.4",
+    "@wordpress/plugins": "^7.57.0"
   }
 }
