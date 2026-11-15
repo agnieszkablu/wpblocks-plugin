@@ -4,7 +4,7 @@
 function blocks_register_template($post_id)
 {
   $post_type_object = get_post_type_object('post');
-  $post_type_object->template_lock = 'all';
+  // $post_type_object->template_lock = 'all';
   $post_type_object->template = array(
     array('blocks/metadata-block'),
     array('core/paragraph', array(
