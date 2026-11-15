@@ -11,9 +11,10 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       blocks-plugin
  */
-include_once('metabox.php');
-include_once('templates.php');
-include_once('patterns.php');
+include_once('inc/metabox.php');
+include_once('inc/templates.php');
+include_once('inc/patterns.php');
+include_once('inc/filters.php');
 
 function blocks_plugin_enqueue_assets()
 {
