@@ -3,3 +3,4 @@ import './todos-store/index.js';
 import './plugins/sidebar.js';
 import './plugins/sidebar-examples.js';
 import './format-types/highlight.js'
+import './filters/index.js';
