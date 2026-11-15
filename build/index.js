@@ -2,6 +2,52 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/format-types/highlight.js"
+/*!***************************************!*\
+  !*** ./src/format-types/highlight.js ***!
+  \***************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/rich-text */ "@wordpress/rich-text");
+/* harmony import */ var _wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+const HighlightFormatButton = ({
+  isActive,
+  value,
+  onChange
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichTextToolbarButton, {
+    icon: "editor-textcolor",
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Highlight custom', 'blocks'),
+    onClick: () => onChange((0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.toggleFormat)(value, {
+      type: 'blocks/highlight',
+      attributes: {
+        style: 'background-color: yellow;'
+      }
+    })),
+    isActive: isActive
+  });
+};
+(0,_wordpress_rich_text__WEBPACK_IMPORTED_MODULE_0__.registerFormatType)('blocks/highlight', {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Highlight', 'blocks'),
+  tagName: 'span',
+  className: null,
+  //'highlight-custom',
+  edit: HighlightFormatButton
+});
+
+/***/ },
+
 /***/ "./src/plugins/sidebar-examples.js"
 /*!*****************************************!*\
   !*** ./src/plugins/sidebar-examples.js ***!
@@ -447,6 +493,16 @@ module.exports = window["ReactJSXRuntime"];
 
 /***/ },
 
+/***/ "@wordpress/block-editor"
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+(module) {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ },
+
 /***/ "@wordpress/components"
 /*!************************************!*\
   !*** external ["wp","components"] ***!
@@ -494,6 +550,16 @@ module.exports = window["wp"]["i18n"];
 (module) {
 
 module.exports = window["wp"]["plugins"];
+
+/***/ },
+
+/***/ "@wordpress/rich-text"
+/*!**********************************!*\
+  !*** external ["wp","richText"] ***!
+  \**********************************/
+(module) {
+
+module.exports = window["wp"]["richText"];
 
 /***/ }
 
@@ -573,6 +639,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _todos_store_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos-store/index.js */ "./src/todos-store/index.js");
 /* harmony import */ var _plugins_sidebar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/sidebar.js */ "./src/plugins/sidebar.js");
 /* harmony import */ var _plugins_sidebar_examples_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/sidebar-examples.js */ "./src/plugins/sidebar-examples.js");
+/* harmony import */ var _format_types_highlight_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./format-types/highlight.js */ "./src/format-types/highlight.js");
+
 
 
 
