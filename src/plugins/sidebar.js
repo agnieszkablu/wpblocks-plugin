@@ -1,59 +1,35 @@
-import { PluginSidebar, PluginDocumentSettingPanel, PluginPostStatusInfo, PluginPrePublishPanel, PluginPostPublishPanel, PluginMoreMenuItem, PluginBlockSettingsMenuItem } from '@wordpress/editor';
-import { registerPlugin } from '@wordpress/plugins';
+import { PluginSidebar } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
+import { PanelBody, TextControl } from '@wordpress/components';
+import { registerPlugin } from '@wordpress/plugins';
+import { useSelect, useDispatch } from '@wordpress/data';
 
-registerPlugin('metafildes-block-sidebar', {
+const MetaFieldsInputs = () => {
+    const subtitle = useSelect((select) => select('core/editor').getEditedPostAttribute('meta')._blocks_course_post_subtitle, []);
+    const { editPost } = useDispatch('core/editor');
+    return (
+      <PanelBody title={__('Metafields Block Settings Menu Item', 'blocks-plugin')}>
+        <TextControl
+          label={__('Subtitle', 'blocks-plugin')}
+          value={subtitle}
+          onChange={(value) => {
+              editPost({ meta: { _blocks_course_post_subtitle: value } });
+          }}
+        />
+      </PanelBody>
+    );
+};
+
+registerPlugin('metafields-sidebar', {
     render: () => {
-        return (
-          <>
-            <PluginDocumentSettingPanel
-                name="metafildes-block-panel"
-                title={__('Metafields Post Options Panel', 'blocks-plugin')}
-                className="metafildes-block-panel"
-                icon="admin-settings"
-            >
-                <p>{__('Content of the panel', 'blocks-plugin')}</p>
-            </PluginDocumentSettingPanel>
-            <PluginPostStatusInfo
-                className="metafildes-block-status-info"
-            >
-                <p>{__('Content of the status info', 'blocks-plugin')}</p>
-            </PluginPostStatusInfo>
-            <PluginPrePublishPanel
-                name="metafildes-block-pre-publish-panel"
-                title={__('Metafields Pre Publish Panel', 'blocks-plugin')}
-                className="metafildes-block-pre-publish-panel"
-            >
-                <p>{__('Content of the pre publish panel', 'blocks-plugin')}</p>
-            </PluginPrePublishPanel>
-            <PluginPostPublishPanel
-                name="metafildes-block-post-publish-panel"
-                title={__('Metafields Post Publish Panel', 'blocks-plugin')}
-                className="metafildes-block-post-publish-panel"
-            >
-                <p>{__('Content of the post publish panel', 'blocks-plugin')}</p>
-            </PluginPostPublishPanel>
-            <PluginMoreMenuItem
-                icon="admin-settings"
-                onClick={ () => alert(__('More menu item clicked', 'blocks-plugin')) }
-            >
-                {__('Metafields More Menu Item', 'blocks-plugin')}
-            </PluginMoreMenuItem>
-            <PluginBlockSettingsMenuItem
-                icon="admin-settings"
-                onClick={ () => alert(__('Block settings menu item clicked', 'blocks-plugin')) }
-                allowedBlocks={['core/paragraph']}
-                label={__('Metafields Block Settings Menu Item', 'blocks-plugin')}
-            >
-            </PluginBlockSettingsMenuItem>
-            <PluginSidebar
-                name="metafildes-block-sidebar"
-                title={__('Metafields Post Options Sidebar', 'blocks-plugin')}
-                icon="admin-settings"
-            >
-                <p>{__('Content of the sidebar', 'blocks-plugin')}</p>
-            </PluginSidebar>
-          </>
-        );
+      return (
+        <PluginSidebar
+            name="metafields-sidebar"
+            title={__('My Plugin Sidebar', 'blocks-plugin')}
+            icon="admin-settings"
+        >
+           <MetaFieldsInputs />
+        </PluginSidebar>
+      );
     }
 });
